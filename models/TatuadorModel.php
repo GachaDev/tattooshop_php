@@ -98,5 +98,24 @@
             return $tatuadores; // Devuelve un array con los tatuadores
         }
 
+        public function getTatuadorByName($nombre) {
+            $this->conexion = $this->dbHandler->conectar();
+            $sql = "SELECT * FROM $this->nombreTabla WHERE id = ?";
+            $stmt = $this->conexion->prepare($sql);
+            $stmt->bind_param("s", $nombre);
+            $stmt->execute();
+
+            $resultado = $stmt->get_result();
+            $tatuadores = [];
+
+            while ($fila = $resultado->fetch_assoc()) {
+                $tatuadores[] = $fila;
+            }
+
+            $this->dbHandler->desconectar();
+
+            return $tatuadores;
+        }
+
     }
 ?>

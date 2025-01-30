@@ -1,3 +1,12 @@
+<!-- Información que debe mostrarse
+• Mensaje: Confirmación de alta de la cita.
+• Fecha de la cita: Fecha y hora seleccionada por el usuario.
+• Descripción de la cita: Texto ingresado por el usuario.
+• Nombre del cliente: Nombre ingresado por el usuario.
+• Nombre del tatuador: Extraído de la base de datos.
+• Email del tatuador: Extraído de la base de datos.
+• Foto del tatuador: Extraída de la base de datos. -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +23,12 @@
 <body>
 
     <h1>ALTA CORRECTA</h1>
+    <p>Fecha de la cita: <?=$input_fecha_cita?></p>
+    <p>Descripción de la cita: <?=$input_descripcion?></p>
+    <p>Nombre del cliente: <?=$input_cliente?></p>
+    <p>Nombre del tatuador: <?=$tatuadorInfo[0]["nombre"]?></p>
+    <p>Email del tatuador: <?=$tatuadorInfo[0]["email"]?></p>
+    <img src="<?=$tatuadorInfo[0]["foto"]?>" alt="tatuador">
 
 </body>
 
