@@ -98,7 +98,7 @@
             return $tatuadores; // Devuelve un array con los tatuadores
         }
 
-        public function getTatuadorByName($nombre) {
+        public function getTatuadorById($nombre) {
             $this->conexion = $this->dbHandler->conectar();
             $sql = "SELECT * FROM $this->nombreTabla WHERE id = ?";
             $stmt = $this->conexion->prepare($sql);

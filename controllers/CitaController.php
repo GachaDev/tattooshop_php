@@ -81,7 +81,7 @@
 
                 if($operacionExitosa) {
                     // LLAMAR A UNA PÁGINA QUE MUESTRE UN MENSAJE DE ÉXITO
-                    $tatuadorInfo = $this->tatuadorModel->getTatuadorByName($input_tatuador);
+                    $tatuadorInfo = $this->tatuadorModel->getTatuadorById($input_tatuador);
                     require_once "./views/citasViews/AltaCitaCorrectaView.php";
                 } else {
                     // LLAMAR A ALGÚN SITIO Y MOSTRAR UN MENSAJE DE ERROR
