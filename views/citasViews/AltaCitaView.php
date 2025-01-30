@@ -59,11 +59,13 @@
                 </div>
                 <div class="form-group">
                     <label class="fw-lighter text-lowercase text-white" for="input_tatuador">Nombre tatuador</label>
-                    <input type="text"
-                        class="shadow form-control "
-                        id="input_tatuador"
-                        name="input_tatuador"
-                        placeholder="Nombre tatuador">
+                    <select class="shadow form-control" id="input_tatuador" name="input_tatuador">
+                        <?php foreach ($tatuadores as $index => $tatuador): ?>
+                            <option value="<?= $tatuador['id'] ?>" <?= $index === 0 ? 'selected' : '' ?>>
+                                <?= htmlspecialchars($tatuador['nombre']) ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
                     <?php if (!empty($errores) && isset($errores["error_tatuador"])): ?><small id="tatuadorError" class="form-text text-danger fw-bold"><?= $errores["error_tatuador"] ?></small><?php endif; ?>
                 </div>
                 <div class="container__btns-form">

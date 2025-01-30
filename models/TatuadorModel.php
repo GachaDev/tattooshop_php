@@ -75,5 +75,28 @@
             return $fila['count'] > 0; // Devuelve true si el email existe, false si no
         }
 
+
+        public function getAllTatuadores() {
+            $this->conexion = $this->dbHandler->conectar();
+
+            // Preparar la consulta SQL para obtener todos los tatuadores
+            $sql = "SELECT * FROM $this->nombreTabla";
+            $stmt = $this->conexion->prepare($sql);
+            $stmt->execute();
+
+            // Obtener los resultados
+            $resultado = $stmt->get_result();
+            $tatuadores = [];
+
+            while ($fila = $resultado->fetch_assoc()) {
+                $tatuadores[] = $fila;
+            }
+
+            // Cerrar la conexión y devolver los datos
+            $this->dbHandler->desconectar();
+
+            return $tatuadores; // Devuelve un array con los tatuadores
+        }
+
     }
 ?>
